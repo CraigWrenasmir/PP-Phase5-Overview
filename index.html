@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Partnerships — Phase 5 Overview</title>
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES (Brand Palette)
+           ============================================ */
+        :root {
+            --purple: #712D90;
+            --purple-dark: #330044;
+            --purple-light: #C2A7CF;
+            --purple-lightest: #F3ECF7;
+            --lime: #BBD64A;
+            --red: #F15B40;
+            --orange: #F7941E;
+            --white: #FFFFFF;
+            --grey-dark: #333333;
+            --grey-medium: #999999;
+            --grey-light: #CCCCCC;
+            --grey-lightest: #F5F5F5;
+
+            --font-heading: 'Helvetica Neue', Helvetica, Arial, Calibri, sans-serif;
+            --font-body: Arial, Calibri, Helvetica, sans-serif;
+
+            --max-width: 1120px;
+            --section-padding: 5rem 1.5rem;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--grey-dark);
+            line-height: 1.65;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.25;
+            color: var(--purple-dark);
+        }
+
+        h1 { font-size: clamp(2rem, 4vw, 3rem); }
+        h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); margin-bottom: 0.75rem; }
+        h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 1rem; max-width: 680px; }
+        ul { margin-bottom: 1rem; padding-left: 1.25rem; }
+        li { margin-bottom: 0.35rem; }
+
+        a { color: var(--purple); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================
+           STICKY NAV
+           ============================================ */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--grey-light);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: box-shadow 0.3s;
+        }
+
+        .sticky-nav.scrolled {
+            box-shadow: 0 2px 20px rgba(51,0,68,0.08);
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-logo img {
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            color: var(--grey-dark);
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--purple-lightest);
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--grey-dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ============================================
+           SECTION BASE
+           ============================================ */
+        .section {
+            padding: var(--section-padding);
+        }
+
+        .section--alt {
+            background: var(--grey-lightest);
+        }
+
+        .section--purple {
+            background: var(--purple-dark);
+            color: var(--white);
+        }
+
+        .section--purple h2,
+        .section--purple h3,
+        .section--purple h4 {
+            color: var(--white);
+        }
+
+        .section--purple p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--purple);
+            margin-bottom: 0.75rem;
+        }
+
+        .section--purple .section-label {
+            color: var(--lime);
+        }
+
+        /* ============================================
+           HERO / PHILOSOPHY
+           ============================================ */
+        .hero {
+            padding: 8rem 1.5rem 5rem;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5rem;
+            color: var(--purple);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-family: var(--font-heading);
+            font-weight: 300;
+            color: var(--grey-medium);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 640px;
+        }
+
+        .philosophy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .pillar {
+            padding: 1.5rem;
+            border-left: 3px solid var(--purple);
+            background: var(--purple-lightest);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pillar h4 {
+            color: var(--purple);
+            font-family: var(--font-heading);
+        }
+
+        .pillar p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--grey-dark);
+        }
+
+        /* ============================================
+           THREE-STAGE MODEL (Hero Diagram)
+           ============================================ */
+        .stages-section {
+            padding: 5rem 1.5rem;
+            background: var(--purple-dark);
+            color: var(--white);
+        }
+
+        .stages-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .stages-header h2 {
+            color: var(--white);
+        }
+
+        .stages-header p {
+            color: rgba(255,255,255,0.75);
+            margin: 0 auto;
+        }
+
+        .stages-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: stretch;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stage-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, border-color 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-card:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .stage-card.active {
+            border-color: var(--lime);
+            background: rgba(187,214,74,0.08);
+        }
+
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .stage-card:nth-child(1) .stage-number { background: var(--lime); color: var(--purple-dark); }
+        .stage-card:nth-child(3) .stage-number { background: var(--orange); color: var(--white); }
+        .stage-card:nth-child(5) .stage-number { background: var(--purple); color: var(--white); }
+
+        .stage-card h3 {
+            color: var(--white);
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .stage-card .stage-mode {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .stage-card p {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.8);
+            flex-grow: 1;
+        }
+
+        .stage-card .expand-hint {
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            color: var(--lime);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .stage-card .expand-hint svg {
+            transition: transform 0.3s;
+        }
+
+        .stage-card.active .expand-hint svg {
+            transform: rotate(180deg);
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.5rem;
+        }
+
+        .flow-arrow svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: rgba(255,255,255,0.3);
+            stroke-width: 2;
+        }
+
+        /* Stage detail panels */
+        .stage-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.4s ease;
+            opacity: 0;
+            background: var(--purple-dark);
+        }
+
+        .stage-detail.open {
+            max-height: 1200px;
+            opacity: 1;
+        }
+
+        .stage-detail-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        /* ============================================
+           PRE-LEARNING PATHWAYS
+           ============================================ */
+        .pathways-diagram {
+            margin-top: 2rem;
+        }
+
+        .pathway-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pathway-source {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.85rem;
+            min-width: 160px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .pathway-arrow {
+            color: rgba(255,255,255,0.3);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .pathway-stream {
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex: 1;
+            max-width: 280px;
+        }
+
+        .pathway-stream--educator { background: var(--lime); color: var(--purple-dark); }
+        .pathway-stream--ta { background: var(--orange); color: var(--white); }
+        .pathway-stream--leadership { background: var(--purple); color: var(--white); }
+        .pathway-stream--experienced { background: var(--red); color: var(--white); }
+        .pathway-stream--parent { background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+
+        .pathway-converge {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .pathway-converge-arrow {
+            display: block;
+            margin: 0 auto 1rem;
+            color: rgba(255,255,255,0.3);
+            font-size: 1.5rem;
+        }
+
+        .converge-badge {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--purple-dark);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .prelearning-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .prelearning-feature {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .prelearning-feature .feat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .prelearning-feature p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           WORKSHOP EXPERIENCE
+           ============================================ */
+        .workshop-philosophy {
+            margin-bottom: 2.5rem;
+        }
+
+        .workshop-philosophy p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .workshop-shifts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .shift-tag {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .workshop-card {
+            border-radius: 12px;
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workshop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .workshop-card:nth-child(1) { background: rgba(187,214,74,0.12); }
+        .workshop-card:nth-child(1)::before { background: var(--lime); }
+        .workshop-card:nth-child(2) { background: rgba(247,148,30,0.12); }
+        .workshop-card:nth-child(2)::before { background: var(--orange); }
+        .workshop-card:nth-child(3) { background: rgba(241,91,64,0.12); }
+        .workshop-card:nth-child(3)::before { background: var(--red); }
+        .workshop-card:nth-child(4) { background: rgba(113,45,144,0.15); }
+        .workshop-card:nth-child(4)::before { background: var(--purple); }
+
+        .workshop-card h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .workshop-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
+            margin: 0;
+        }
+
+        /* ============================================
+           POST-LEARNING
+           ============================================ */
+        .post-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .post-column h4 {
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-column h4 .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .badge--digital { background: var(--lime); color: var(--purple-dark); }
+        .badge--physical { background: var(--orange); color: var(--white); }
+
+        .post-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .post-column ul li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .post-column ul li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.55rem;
+        }
+
+        .post-digital li::before { background: var(--lime); }
+        .post-physical li::before { background: var(--orange); }
+
+        .sustainability-note {
+            margin-top: 2rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(187,214,74,0.08);
+            border-left: 3px solid var(--lime);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* ============================================
+           COMMUNITY & ENGAGEMENT (light section)
+           ============================================ */
+        .engagement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .engagement-card {
+            background: var(--white);
+            border: 1px solid var(--grey-light);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .engagement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(51,0,68,0.08);
+        }
+
+        .engagement-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .engagement-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .engagement-card:nth-child(1) .engagement-icon { background: rgba(113,45,144,0.1); }
+        .engagement-card:nth-child(1) .engagement-icon svg { stroke: var(--purple); fill: none; }
+        .engagement-card:nth-child(2) .engagement-icon { background: rgba(247,148,30,0.1); }
+        .engagement-card:nth-child(2) .engagement-icon svg { stroke: var(--orange); fill: none; }
+        .engagement-card:nth-child(3) .engagement-icon { background: rgba(187,214,74,0.15); }
+        .engagement-card:nth-child(3) .engagement-icon svg { stroke: #7a9e1a; fill: none; }
+
+        .engagement-card h3 {
+            font-size: 1.15rem;
+            color: var(--purple-dark);
+        }
+
+        .engagement-card p {
+            font-size: 0.9rem;
+            color: var(--grey-medium);
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           WHOLE SCHOOL DELIVERY
+           ============================================ */
+        .timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--grey-light);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 0.75rem;
+        }
+
+        .timeline-dot {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            font-family: var(--font-heading);
+            position: relative;
+        }
+
+        .timeline-step:nth-child(1) .timeline-dot { background: var(--purple); color: var(--white); }
+        .timeline-step:nth-child(2) .timeline-dot { background: var(--orange); color: var(--white); }
+        .timeline-step:nth-child(3) .timeline-dot { background: var(--lime); color: var(--purple-dark); }
+
+        .timeline-connector {
+            position: absolute;
+            top: 32px;
+            right: -2rem;
+            width: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-step h4 {
+            color: var(--purple-dark);
+            font-size: 1rem;
+        }
+
+        .timeline-step p {
+            font-size: 0.85rem;
+            color: var(--grey-medium);
+            margin: 0 auto;
+            max-width: 240px;
+        }
+
+        .timeline-step .step-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--grey-medium);
+            margin-bottom: 0.25rem;
+        }
+
+        .delivery-note {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--purple-lightest);
+            border-left: 3px solid var(--purple);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 2.5rem 1.5rem;
+            background: var(--purple-dark);
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            margin: 0 auto;
+        }
+
+        .footer img {
+            height: 28px;
+            margin: 0 auto 1rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+        }
+
+        /* ============================================
+           SCROLL ANIMATIONS
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .stages-flow {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                padding: 0.25rem 0;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid var(--grey-light);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                min-height: auto;
+            }
+
+            .philosophy-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .post-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 32px;
+                right: auto;
+                width: 3px;
+                height: auto;
+            }
+
+            .timeline-step {
+                text-align: left;
+                display: flex;
+                align-items: flex-start;
+                gap: 1.25rem;
+                padding: 0 0 2rem 0;
+            }
+
+            .timeline-dot {
+                flex-shrink: 0;
+                width: 64px;
+                height: 64px;
+            }
+
+            .timeline-step p {
+                max-width: none;
+            }
+
+            .pathway-row {
+                flex-wrap: wrap;
+            }
+
+            .pathway-stream {
+                max-width: none;
+            }
+
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            :root {
+                --section-padding: 3.5rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .engagement-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ STICKY NAV ============ -->
+    <nav class="sticky-nav" id="nav">
+        <div class="nav-inner">
+            <a href="#philosophy" class="nav-logo">
+                <img src="assets/PP Logo.png" alt="Positive Partnerships">
+            </a>
+            <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#three-stage">Learning Model</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#whole-school">Whole School</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============ SECTION 1: PHILOSOPHY ============ -->
+    <section class="hero section" id="philosophy">
+        <div class="hero-content">
+            <div class="section-label">Phase 5</div>
+            <h1>A New Direction for<br>Positive Partnerships</h1>
+            <p class="subtitle">Whole-class inclusion and neurodiversity-affirming practice</p>
+            <p>Phase 5 shifts toward Universal Design for Learning principles — activating environmental strategies that support diverse learners, rather than focusing solely on individual student plans. For families, this approach also supports parents and carers with more than one autistic young person.</p>
+            <p>The Planning Tool remains a central resource, but workshops will no longer walk through it step-by-step. Instead, conversations focus on core considerations in autism education and home-school collaboration.</p>
+
+            <div class="philosophy-pillars fade-up">
+                <div class="pillar">
+                    <h4>Universal Design</h4>
+                    <p>Environmental strategies that benefit all learners in the classroom</p>
+                </div>
+                <div class="pillar">
+                    <h4>Neurodiversity-Affirming</h4>
+                    <p>Recognising and valuing the strengths and differences of autistic students</p>
+                </div>
+                <div class="pillar">
+                    <h4>Whole-Class Inclusion</h4>
+                    <p>Moving beyond individual plans to create inclusive environments by design</p>
+                </div>
+                <div class="pillar">
+                    <h4>Family-Centred</h4>
+                    <p>Supporting parents and carers across the complexity of family life</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 2: THREE-STAGE MODEL ============ -->
+    <section class="stages-section" id="three-stage">
+        <div class="stages-header fade-up">
+            <div class="section-label" style="color: var(--lime);">The Learning Model</div>
+            <h2>Three Stages of Learning</h2>
+            <p>A connected learning journey that extends well beyond the workshop day</p>
+        </div>
+
+        <div class="stages-flow fade-up">
+            <!-- Stage 1 -->
+            <div class="stage-card" data-stage="pre-learning" onclick="toggleStage('pre-learning')">
+                <span class="stage-number">1</span>
+                <h3>Pre-Learning</h3>
+                <div class="stage-mode">Online &middot; Before the workshop</div>
+                <p>Foundational knowledge and role-specific modules that prepare participants for deeper workshop engagement.</p>
+                <div class="expand-hint">
+                    Explore detail
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+                <svg viewBox="0 0 32 32"><path d="M8 16H24M24 16L18 10M24 16L18 22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="stage-card" data-stage="workshop" onclick="toggleStage('workshop')">
+                <span class="stage-number">2</span>
+                <h3>Workshop</h3>
+                <div class="stage-mode">In-person &middot; One day</div>
+                <p>High-impact discussion, reflection, and collaborative learning — the centrepiece of the experience.</p>
+                <div class="expand-hint">
+                    Explore detail
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+                <svg viewBox="0 0 32 32"><path d="M8 16H24M24 16L18 10M24 16L18 22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="stage-card" data-stage="post-learning" onclick="toggleStage('post-learning')">
+                <span class="stage-number">3</span>
+                <h3>Post-Learning</h3>
+                <div class="stage-mode">Online &middot; After the workshop</div>
+                <p>Extended tools, deeper content, and communities of practice for ongoing implementation support.</p>
+                <div class="expand-hint">
+                    Explore detail
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== STAGE DETAIL: PRE-LEARNING ====== -->
+        <div class="stage-detail" id="detail-pre-learning">
+            <div class="stage-detail-inner">
+                <h3 style="color: var(--lime); margin-bottom: 0.5rem;">Pre-Learning Pathways</h3>
+                <p style="color: rgba(255,255,255,0.75); margin-bottom: 0.25rem;">Role-specific streams replace the single Introduction to Autism module. Participants enter a tailored pathway, then converge at the workshop.</p>
+
+                <div class="pathways-diagram">
+                    <div class="pathway-row">
+                        <div class="pathway-source">Professional<br>Learning</div>
+                        <div class="pathway-arrow">&rarr;</div>
+                        <div class="pathway-stream pathway-stream--educator">Early Career Educators</div>
+                    </div>
+                    <div class="pathway-row">
+                        <div class="pathway-source" style="visibility:hidden">Professional<br>Learning</div>
+                        <div class="pathway-arrow">&rarr;</div>
+                        <div class="pathway-stream pathway-stream--ta">Teaching Assistants / Support Staff</div>
+                    </div>
+                    <div class="pathway-row">
+                        <div class="pathway-source" style="visibility:hidden">Professional<br>Learning</div>
+                        <div class="pathway-arrow">&rarr;</div>
+                        <div class="pathway-stream pathway-stream--leadership">School Leadership</div>
+                    </div>
+                    <div class="pathway-row">
+                        <div class="pathway-source" style="visibility:hidden">Professional<br>Learning</div>
+                        <div class="pathway-arrow">&rarr;</div>
+                        <div class="pathway-stream pathway-stream--experienced">Experienced Educators</div>
+                    </div>
+                    <div class="pathway-row" style="margin-top: 1.5rem;">
+                        <div class="pathway-source">Parents &amp;<br>Carers</div>
+                        <div class="pathway-arrow">&rarr;</div>
+                        <div class="pathway-stream pathway-stream--parent">Parent / Carer Pathways</div>
+                    </div>
+                    <div class="pathway-converge">
+                        <span class="pathway-converge-arrow">&darr;</span>
+                        <div class="converge-badge">All pathways converge at the Workshop</div>
+                    </div>
+                </div>
+
+                <div class="prelearning-features">
+                    <div class="prelearning-feature">
+                        <span class="feat-icon">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="16" rx="3" stroke="var(--lime)" stroke-width="2"/><path d="M10 25h8M14 21v4" stroke="var(--lime)" stroke-width="2" stroke-linecap="round"/></svg>
+                        </span>
+                        <p>Micro-modules</p>
+                    </div>
+                    <div class="prelearning-feature">
+                        <span class="feat-icon">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="var(--lime)" stroke-width="2"/><path d="M14 9v5l3.5 3.5" stroke="var(--lime)" stroke-width="2" stroke-linecap="round"/></svg>
+                        </span>
+                        <p>Interactive exercises</p>
+                    </div>
+                    <div class="prelearning-feature">
+                        <span class="feat-icon">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 6h16v16H6z" stroke="var(--lime)" stroke-width="2" stroke-linejoin="round"/><path d="M10 12h8M10 16h5" stroke="var(--lime)" stroke-width="2" stroke-linecap="round"/></svg>
+                        </span>
+                        <p>Templates to complete</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== STAGE DETAIL: WORKSHOP ====== -->
+        <div class="stage-detail" id="detail-workshop">
+            <div class="stage-detail-inner">
+                <h3 style="color: var(--orange); margin-bottom: 0.5rem;">The Workshop Experience</h3>
+                <div class="workshop-philosophy">
+                    <p>Workshops shift away from PowerPoint and lecture delivery. All workshops move to a <strong style="color: var(--white);">one-day format</strong> focused on participation and practical learning.</p>
+                    <div class="workshop-shifts">
+                        <span class="shift-tag">Collaborative discussion</span>
+                        <span class="shift-tag">Practising strategies</span>
+                        <span class="shift-tag">Context-specific exploration</span>
+                    </div>
+                </div>
+                <h4 style="color: rgba(255,255,255,0.6); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Content areas developed with Autism CRC and reference groups</h4>
+                <div class="workshop-grid">
+                    <div class="workshop-card">
+                        <h4>Understanding Autistic Experience</h4>
+                        <p>Deepening knowledge of how autistic people experience the world, grounded in contemporary research and lived experience.</p>
+                    </div>
+                    <div class="workshop-card">
+                        <h4>Universal Design for Diverse Learners</h4>
+                        <p>Applying UDL principles to create environments where all students can access, engage with, and demonstrate learning.</p>
+                    </div>
+                    <div class="workshop-card">
+                        <h4>Practical Classroom &amp; Home Strategies</h4>
+                        <p>Concrete, implementable strategies that work across school and home settings to support autistic young people.</p>
+                    </div>
+                    <div class="workshop-card">
+                        <h4>Collaborative Planning</h4>
+                        <p>Working together — educators, families, and support staff — to plan effectively for student success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== STAGE DETAIL: POST-LEARNING ====== -->
+        <div class="stage-detail" id="detail-post-learning">
+            <div class="stage-detail-inner">
+                <h3 style="color: var(--purple-light); margin-bottom: 0.5rem;">Post-Learning &amp; Digital Resources</h3>
+                <p style="color: rgba(255,255,255,0.75);">Printed participant workbooks are discontinued. Participants access high-quality digital resources supporting better accessibility, ongoing access, and environmental sustainability.</p>
+
+                <div class="post-columns">
+                    <div class="post-column post-digital">
+                        <h4><span class="badge badge--digital">Digital</span> Accessed on own devices</h4>
+                        <ul>
+                            <li>Summaries of key concepts</li>
+                            <li>Curated videos and tools</li>
+                            <li>Links to ongoing learning via the LMS</li>
+                            <li>Extended resources and deeper content</li>
+                        </ul>
+                    </div>
+                    <div class="post-column post-physical">
+                        <h4><span class="badge badge--physical">Physical</span> Used at workshops</h4>
+                        <ul>
+                            <li>Laminated Diversity Wheels</li>
+                            <li>Story Circles</li>
+                            <li>Planning Tools</li>
+                            <li>My Child's Storyboards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sustainability-note">
+                    <strong style="color: var(--lime);">Why the shift?</strong> Digital resources support better accessibility for all participants, allow ongoing access after the workshop, and reduce environmental impact. Hands-on physical resources remain where they add most value — during the workshop itself.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 6: COMMUNITY ============ -->
+    <section class="section section--alt" id="community">
+        <div class="container">
+            <div class="section-label">Beyond the Workshop</div>
+            <h2>Community &amp; Ongoing Engagement</h2>
+            <p>Phase 5 builds Positive Partnerships as an ongoing community — extending the learning relationship well beyond a single workshop.</p>
+
+            <div class="engagement-cards fade-up">
+                <div class="engagement-card">
+                    <div class="engagement-icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </div>
+                    <h3>Podcast Conversations</h3>
+                    <p>New podcast series exploring innovation in autism and education — featuring researchers, educators, autistic advocates, and families.</p>
+                </div>
+                <div class="engagement-card">
+                    <div class="engagement-icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Online Learning Sessions</h3>
+                    <p>Interactive online sessions connected to podcast conversations — deepening understanding and providing practical follow-up.</p>
+                </div>
+                <div class="engagement-card">
+                    <div class="engagement-icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Annual Online Conference</h3>
+                    <p>Bringing together parents, carers, educators, and guest speakers for a collaborative annual event focused on current practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECTION 7: WHOLE SCHOOL ============ -->
+    <section class="section" id="whole-school">
+        <div class="container">
+            <div class="section-label">Delivery Model</div>
+            <h2>Whole School Delivery</h2>
+            <p>A three-visit model that maximises travel value and brings Positive Partnerships to both the school community and surrounding families.</p>
+
+            <div class="timeline fade-up">
+                <div class="timeline-step">
+                    <div class="timeline-dot">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <span class="step-label">Initial Visit</span>
+                        <h4>Whole School Workshop</h4>
+                        <p>Full-day professional learning workshop for the school's educators and staff.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <div>
+                        <span class="step-label">Return Visit &middot; Day 1</span>
+                        <h4>School Families Workshop</h4>
+                        <p>Parent and carer workshop specifically for families at the school.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <span class="step-label">Return Visit &middot; Day 2</span>
+                        <h4>Community Workshop</h4>
+                        <p>Parent and carer workshop open to the wider local community.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-note fade-up">
+                <strong>Why this model?</strong> By returning to the same location, the team maximises travel value and reduces the need for separate standalone parent workshops in other locations — while ensuring both the school community and wider area benefit.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <img src="assets/PP Logo.png" alt="Positive Partnerships">
+        <p>Positive Partnerships is funded by the Australian Government Department of Education.<br>Phase 5 Overview — Internal &amp; Stakeholder Reference</p>
+    </footer>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // --- Sticky nav scroll state ---
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // --- Hamburger menu ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // --- Active nav link on scroll ---
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 120;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollPos >= top && scrollPos < top + height) {
+                    navAnchors.forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // --- Stage expand/collapse ---
+        function toggleStage(stage) {
+            const detail = document.getElementById('detail-' + stage);
+            const card = document.querySelector('[data-stage="' + stage + '"]');
+            const isOpen = detail.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.stage-detail').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.stage-card').forEach(c => c.classList.remove('active'));
+
+            // Open if it was closed
+            if (!isOpen) {
+                detail.classList.add('open');
+                card.classList.add('active');
+                // Smooth scroll to detail
+                setTimeout(() => {
+                    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+
+        // --- Scroll-triggered fade-in ---
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
