@@ -253,6 +253,204 @@
         }
 
         /* ============================================
+           WORKSHOP OPTIONS
+           ============================================ */
+        .workshop-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .workshop-option {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: var(--purple-lightest);
+            border: 1px solid var(--purple-light);
+            border-radius: 50px;
+            padding: 0.55rem 1.25rem 0.55rem 0.55rem;
+            font-size: 0.9rem;
+            color: var(--purple-dark);
+            font-weight: 500;
+        }
+
+        .option-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--purple);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           DEMO BUTTONS
+           ============================================ */
+        .demo-section {
+            padding: 4rem 1.5rem;
+            background: var(--purple-lightest);
+        }
+
+        .demo-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: var(--max-width);
+            margin: 2rem auto 0;
+        }
+
+        .demo-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--grey-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-card p {
+            font-size: 0.9rem;
+            color: var(--grey-medium);
+            flex-grow: 1;
+        }
+
+        .demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            align-self: flex-start;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(51,0,68,0.15);
+            text-decoration: none;
+        }
+
+        .demo-btn--workbook {
+            background: var(--purple);
+            color: var(--white);
+        }
+
+        .demo-btn--prelearning {
+            background: var(--lime);
+            color: var(--purple-dark);
+        }
+
+        .demo-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-badge--workbook {
+            background: rgba(113,45,144,0.1);
+            color: var(--purple);
+        }
+
+        .demo-badge--prelearning {
+            background: rgba(187,214,74,0.2);
+            color: #5a7a10;
+        }
+
+        /* ============================================
+           DIGITAL WORKBOOKS SECTION
+           ============================================ */
+        .digital-section {
+            padding: var(--section-padding);
+            background: var(--white);
+        }
+
+        .digital-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .digital-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .digital-col h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .digital-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .digital-col ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--grey-lightest);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .digital-col ul li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.55rem;
+        }
+
+        .digital-col--digital li::before { background: var(--purple); }
+        .digital-col--physical li::before { background: var(--orange); }
+
+        .digital-callout {
+            margin-top: 2rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--purple-lightest);
+            border-left: 3px solid var(--purple);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .digital-columns {
+                grid-template-columns: 1fr;
+            }
+            .demo-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
            THREE-STAGE MODEL (Hero Diagram)
            ============================================ */
         .stages-section {
@@ -930,6 +1128,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#philosophy">Philosophy</a></li>
                 <li><a href="#three-stage">Learning Model</a></li>
+                <li><a href="#digital-workbooks">Digital Workbooks</a></li>
+                <li><a href="#demos">Demos</a></li>
                 <li><a href="#community">Community</a></li>
                 <li><a href="#whole-school">Whole School</a></li>
             </ul>
@@ -940,10 +1140,33 @@
     <section class="hero section" id="philosophy">
         <div class="hero-content">
             <div class="section-label">Phase 5</div>
-            <h1>A New Direction for<br>Positive Partnerships</h1>
-            <p class="subtitle">Whole-class inclusion and neurodiversity-affirming practice</p>
-            <p>Phase 5 shifts toward Universal Design for Learning principles — activating environmental strategies that support diverse learners, rather than focusing solely on individual student plans. For families, this approach also supports parents and carers with more than one autistic young person.</p>
-            <p>The Planning Tool remains a central resource, but workshops will no longer walk through it step-by-step. Instead, conversations focus on core considerations in autism education and home-school collaboration.</p>
+            <h1>New Directions</h1>
+            <p class="subtitle">Workshop Options</p>
+
+            <div class="workshop-options fade-up">
+                <div class="workshop-option">
+                    <span class="option-number">S1</span>
+                    <span>Professional Learning</span>
+                </div>
+                <div class="workshop-option">
+                    <span class="option-number">S2</span>
+                    <span>Parent Carer Workshops</span>
+                </div>
+                <div class="workshop-option">
+                    <span class="option-number">S3</span>
+                    <span>Whole School Programs</span>
+                </div>
+                <div class="workshop-option">
+                    <span class="option-number">S4</span>
+                    <span>Outreach for First Nations Communities</span>
+                </div>
+                <div class="workshop-option">
+                    <span class="option-number">S5</span>
+                    <span>CALD Workshops and Training</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem;">Phase 5 shifts towards an activation of neurodiversity-affirming practices across school and home environments to support all school-aged autistic students, rather than focusing solely on individual student plans. For families, this approach also supports parents and carers with more than one autistic young person and broadens the conversation across multiple contexts.</p>
 
             <div class="philosophy-pillars fade-up">
                 <div class="pillar">
@@ -1146,6 +1369,74 @@
 
                 <div class="sustainability-note">
                     <strong style="color: var(--lime);">Why the shift?</strong> Digital resources support better accessibility for all participants, allow ongoing access after the workshop, and reduce environmental impact. Hands-on physical resources remain where they add most value — during the workshop itself.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DIGITAL WORKBOOKS ============ -->
+    <section class="digital-section" id="digital-workbooks">
+        <div class="digital-content">
+            <div class="section-label">A Key Change</div>
+            <h2>Digital Workbooks Replace Print</h2>
+            <p>Printed participant workbooks will be discontinued. Instead, participants will access high-quality digital resources, supporting:</p>
+            <ul>
+                <li>Better accessibility and ongoing access to materials</li>
+                <li>Environmental sustainability</li>
+            </ul>
+            <p>Participants can use their own devices (phone / tablet / laptop) to access these resources, but the focus will not be on referring to these actively across the sessions: if paper-based resources are required, they will be part of the kit resources, including laminated Diversity Wheels, Story Circles, Planning Tools and My Child's Storyboards.</p>
+            <p>This means that the majority, if not all, resources will not need to be printed and shipped to workshops; kit resources will be the resources used at workshops, in conjunction with participants using their own devices to access the digital resources shared with them before and after the workshops.</p>
+
+            <div class="digital-columns fade-up">
+                <div class="digital-col digital-col--digital">
+                    <h4><span class="badge badge--digital" style="background: var(--purple); color: var(--white);">Digital</span> Accessed on own devices</h4>
+                    <ul>
+                        <li>Summaries of key concepts</li>
+                        <li>Curated videos and tools accessed throughout the workshops</li>
+                        <li>Links to ongoing learning available on the LMS</li>
+                    </ul>
+                </div>
+                <div class="digital-col digital-col--physical">
+                    <h4><span class="badge badge--physical" style="background: var(--orange); color: var(--white);">Physical Kit</span> Used at workshops</h4>
+                    <ul>
+                        <li>Laminated Diversity Wheels</li>
+                        <li>Story Circles</li>
+                        <li>Planning Tools</li>
+                        <li>My Child's Storyboards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="digital-callout fade-up">
+                <strong style="color: var(--purple);">The shift in practice:</strong> Digital resources support better accessibility for all participants, allow ongoing access after the workshop, and reduce environmental impact. Hands-on physical kit resources remain where they add most value — during the workshop itself.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DEMOS ============ -->
+    <section class="demo-section" id="demos">
+        <div class="container">
+            <div class="section-label">See It In Action</div>
+            <h2>Interactive Demos</h2>
+            <p>Explore working prototypes of key Phase 5 digital experiences.</p>
+            <div class="demo-cards fade-up">
+                <div class="demo-card">
+                    <span class="demo-badge demo-badge--workbook">Digital Workbook</span>
+                    <h3>Digital Workbook Demo</h3>
+                    <p>See what the new digital participant workbooks could look like — replacing printed workbooks with accessible, device-friendly resources.</p>
+                    <a href="https://positivepartnerships.github.io/workbook-demo/" target="_blank" rel="noopener" class="demo-btn demo-btn--workbook">
+                        View Workbook Demo
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="demo-card">
+                    <span class="demo-badge demo-badge--prelearning">Pre-Learning</span>
+                    <h3>Pre-Learning Pathways Demo</h3>
+                    <p>Experience the role-specific pre-learning pathways that participants will complete before attending their workshop.</p>
+                    <a href="https://positivepartnerships.github.io/workbook-demo/" target="_blank" rel="noopener" class="demo-btn demo-btn--prelearning">
+                        View Pre-Learning Demo
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
